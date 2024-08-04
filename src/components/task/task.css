@@ -1,0 +1,24 @@
+.task_root {
+    background-color: #384244;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 1 ;
+}
+.task_name {
+    display: flex;
+    gap: 8px;
+    font-size: 18px;
+    width: 100%;
+}
+.line_through {
+    text-decoration: line-through;
+}
+.deleteBtn {
+    background: none;
+    cursor: pointer;
+}
+
