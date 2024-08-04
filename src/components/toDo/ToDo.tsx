@@ -9,7 +9,7 @@ interface TaskType {
     isChecked: boolean;
 }
 
-const ToDo = () => {
+const ToDo: React.FC = () => {
     const [taskName, setTaskName] = useState('');
     const [submittedTasks, setSubmittedTasks] = useState<TaskType[]>([]);
     const [completedCount, setCompletedCount] = useState(0);
@@ -59,14 +59,14 @@ const ToDo = () => {
     return (
         <div className='root'>
             <div className='header'>
-                <p className='title'>Completed is {completedCount}</p>
+                <p className='title'> Completed: {completedCount} </p>
                 <form className='form' onSubmit={handleSubmit}>
                     <input
                         className='form_input'
-                    value={taskName}
-                    onChange={e => setTaskName(e.target.value)}
-                    type="text"
-                    placeholder="enter task"
+                        value={taskName}
+                        onChange={e => setTaskName(e.target.value)}
+                        type="text"
+                        placeholder="Enter task"
                     />
                     <button className='addBtn' type="submit" disabled={!taskName}>
                         <FaPlus color='white' size={20} />
@@ -74,16 +74,16 @@ const ToDo = () => {
                 </form>
             </div>
             <div className='tasks'>
-            {submittedTasks.map((task, index) => (
-                <Task
-                    key={index}
-                    taskName={task.name}
-                    isChecked={task.isChecked}
-                    handleDeleteTask={() => handleDeleteTask(index, task.isChecked)}
-                    handleTaskChecked={(isChecked: boolean) => handleTaskChecked(index, isChecked)}
-                />
-            ))}</div>
-
+                {submittedTasks.map((task, index) => (
+                    <Task
+                        key={index}
+                        taskName={task.name}
+                        isChecked={task.isChecked}
+                        handleDeleteTask={() => handleDeleteTask(index, task.isChecked)}
+                        handleTaskChecked={(isChecked: boolean) => handleTaskChecked(index, isChecked)}
+                    />
+                ))}
+            </div>
         </div>
     );
 };
